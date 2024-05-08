@@ -1,0 +1,25 @@
+{
+    "name": "ritchie-olp-2024-1-js-fr",
+    "version": "1.0.0",
+    "description": "Online learning platform Frontend project for the JS course",
+    "main": "src/js/app.js",
+    "scripts": {
+        "start": "webpack serve --mode development --open",
+        "build": "webpack --mode production"
+    },
+    "dependencies": {
+        "three.js": "^0.77.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.0.0",
+        "@babel/preset-env": "^7.0.0",
+        "babel-loader": "^8.0.0",
+        "css-loader": "^6.0.0",
+        "html-loader": "^4.0.0",
+        "html-webpack-plugin": "^5.0.0",
+        "style-loader": "^3.0.0",
+        "webpack": "^5.0.0",
+        "webpack-cli": "^4.0.0",
+        "webpack-dev-server": "^4.0.0"
+    }
+}
