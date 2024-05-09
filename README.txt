@@ -37,10 +37,14 @@ project-root/
 │   │       └── components/
 │   ├── styles/                 # Estilos globales
 │   │   └── global.css          # Estilos globales compartidos
-│   ├── index.html              # Archivo HTML fuente para la aplicación
 │   └── index.js                # Archivo principal de JavaScript
+|   └── App.js                  # Archivo principal de nuestra app SPA
+|   └── Router.js               # Archivo de configuración de rutas de nuestra app SPA
 │
 ├── .babelrc                    # Archivo de configuración de Babel
+├── .gitignore                  # Archivo de ocultar archivos/directorios a Git
+├── index.html                  # Archivo principal de HTML
+├── package-lock.json           # Dependencias del proyecto con versiones exactas
 ├── package.json                # Dependencias del proyecto y scripts
 ├── webpack.config.js           # Archivo de configuración de Webpack
 └── README.md                   # Documentación del proyecto

@@ -2,7 +2,7 @@
     "name": "ritchie-olp-2024-1-js-fr",
     "version": "1.0.0",
     "description": "Online learning platform Frontend project for the JS course",
-    "main": "src/js/app.js",
+    "main": "app/index.js",
     "scripts": {
         "start": "webpack serve --mode development --open",
         "build": "webpack --mode production"

@@ -1,11 +1,13 @@
+// webpack.config.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './app/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
     clean: true
   },
   module: {
@@ -35,7 +37,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './index.html',
       filename: 'index.html'
     })
   ],
@@ -44,6 +46,9 @@ module.exports = {
       directory: path.join(__dirname, 'dist')
     },
     compress: true,
-    port: 9000
+    port: 9000,
+    historyApiFallback: {
+      index: '/index.html', // Asegúrate de que devuelva correctamente index.html
+    }
   }
 };
