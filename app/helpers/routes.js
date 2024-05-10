@@ -6,7 +6,7 @@ import { ReportScene } from '../scenes/private/reports';
 export const routes = {
     private: [
         { path: '/dashboard', component: HomeScene },
-        { path: '/dashboard/reports', component: ReportScene }
+        { path: '/dashboard/reports', component: ReportScene },
     ],
     public: [
         { path: '/login', component: LoginPage }

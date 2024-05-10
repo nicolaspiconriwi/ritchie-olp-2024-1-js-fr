@@ -2,20 +2,20 @@ import { navigateTo } from '../../../../../Router.js';
 import { formValidator } from '../../../../../helpers';
 import './login-form.css';
 
-export function LoginFormComponent() {
+export async function LoginFormComponent() {
   const root = document.getElementById('root');
 
   root.innerHTML = `
-    <form id="loginForm">
-      <h2>Login</h2>
-      <label for="email">Email:</label>
-      <input type="text" id="email" name="email" autocomplete="email">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" autocomplete="current-password">
-      <button type="submit">Login</button>
-    </form>
-  `;
-
+      <form id="loginForm">
+        <h2>Login</h2>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" autocomplete="email">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" autocomplete="current-password">
+        <button type="submit">Login</button>
+      </form>
+    `;
+  
   const form = document.getElementById('loginForm');
   form.addEventListener('submit', async (event) => {
     event.preventDefault();

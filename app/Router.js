@@ -66,6 +66,7 @@ async function checkAuth(path) {
 // Definir y manejar el router
 export async function Router() {
   const path = window.location.pathname;
+  console.log(path);
 
   // Verificar autenticación antes de decidir qué componente mostrar
   if (path === '/login' || path === '/') {

@@ -2,7 +2,7 @@ import './reports.css';
 
 export function ReportScene() {
   const root = document.getElementById('root');
-
+  // aqui quiero poner mi navbar
   root.innerHTML = `
       <nav>
         <button id="logout">Logout</button>

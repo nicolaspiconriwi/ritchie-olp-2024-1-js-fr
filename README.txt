@@ -2,7 +2,7 @@ project-root/
 │
 ├── dist/                       # Carpeta de salida de archivos generados por Webpack
 │
-├── src/                        # Carpeta de código fuente
+├── app/                        # Carpeta de código fuente
 │   ├── assets/                 # Imágenes, fuentes, etc.
 │   ├── components/             # Componentes reutilizables globales
 │   │   ├── navigation-bar/     # Barra de navegación
