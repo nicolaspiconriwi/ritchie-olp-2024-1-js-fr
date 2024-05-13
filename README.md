@@ -1,3 +1,13 @@
+# Dashboard SPA
+
+## Descripción
+
+En este proyecto, se implementa un dashboard de una aplicación web de una sola página (SPA) utilizando Webpack y Babel. El dashboard consta de varias escenas, como la vista principal, la vista de inicio, la vista de informes y la vista de configuración. Cada escena contiene componentes reutilizables, como la barra
+
+de navegación, el menú lateral y el formulario de inicio de sesión. El proyecto está estructurado de acuerdo con las mejores prácticas de desarrollo web y utiliza tecnologías modernas para optimizar el rendimiento y la eficiencia del código.
+
+## Estructura del proyecto
+```txt
 project-root/
 │
 ├── dist/                       # Carpeta de salida de archivos generados por Webpack
@@ -48,3 +58,4 @@ project-root/
 ├── package.json                # Dependencias del proyecto y scripts
 ├── webpack.config.js           # Archivo de configuración de Webpack
 └── README.md                   # Documentación del proyecto
+```
