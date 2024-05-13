@@ -20,37 +20,74 @@ Puede que en este momento estes pensando, bueno, y para que quiero gestionar dep
 
 ## ¿Cómo funciona Webpack?
 
-Webpack funciona a través de un proceso de construcción que se divide en varias fases:
+Webpack funciona a través de un proceso de construcción que se divide en varias fases. Para ellos, vamos a seguir la configuracion de Webpack en nuestro archivo [webpack.config.js](../webpack.config.js)
 
-1. **Entrada**: Webpack comienza leyendo un archivo de entrada, generalmente un archivo JavaScript principal que importa otros módulos. Veamos un ejemplo de un archivo de entrada:
-
-```javascript
-// main.js
-import { saludar } from './saludo.js';
-
-saludar('Mundo');
-```
-
-Y desde webpack se puede configurar el archivo de entrada en el archivo de configuración `webpack.config.js`:
+1. **Entrada**(entry): El punto de entrada le dice a Webpack por dónde empezar y comienza a construir su gráfico de dependencias. En nuestro archivo de configuración, el punto de entrada se establece en './app/index.js'. Esto significa que Webpack comenzará a analizar desde index.js y rastreará todas las importaciones y requerimientos desde este archivo.
 
 ```javascript
-// webpack.config.js
-
-module.exports = {
-  entry: './src/main.js',
-};
+entry: './app/index.js',
 ```
 
-De esta forma, Webpack sabe cuál es el punto de entrada de la aplicación y puede comenzar a construir el grafo de dependencias. Se entiende por grafo de dependencias a la representación de las dependencias entre los diferentes módulos de la aplicación. Como por ejemplo, en el código anterior, `main.js` depende de `saludo.js`.
+2. **Salida**(output): La salida le dice a Webpack dónde emitir los paquetes que crea y cómo nombrar estos archivos. En nuestro archivo de configuración, la salida se establece en './dist/main.js'. Esto significa que Webpack emitirá un archivo llamado main.js en la carpeta dist.
 
-2. **Análisis y transformación**: Una vez que Webpack ha identificado las dependencias de la aplicación, realiza un análisis estático del código para comprender cómo se relacionan los diferentes módulos. Durante este proceso, Webpack puede aplicar transformaciones al código, como la transpilación de código TypeScript a JavaScript o la optimización de imágenes.
+```javascript
+output: {
+  path: path.resolve(__dirname, 'dist'), // carpeta del bundle de salida
+  filename: 'bundle.js', // nombre del archivo de salida
+  publicPath: '/', // ruta relativa para los assets
+  clean: true // limpiar la carpeta de salida antes de cada compilación
+},
+```
 
-3. **Generación de gráficos**: Webpack crea un gráfico de dependencias que representa la estructura de la aplicación y cómo se relacionan los diferentes módulos. Este gráfico se utiliza para determinar el orden de carga de los módulos y cómo se empaquetarán en el archivo de salida.
+Si no le indicamos un nombre de archivo, Webpack generará un archivo llamado 'main.js' por defecto en la carpeta 'dist'. Tambien podemos cambiar el nombre de la carpeta de salida, cambiando la propiedad path.resolve(**dirname, 'nuevaCarpeta'). **dirname es una variable global de Node.js que hace referencia al directorio actual del archivo.
 
-4. **Empaquetado**: Una vez que Webpack ha generado el gráfico de dependencias, empaqueta los módulos en un único archivo o varios archivos, dependiendo de la configuración. Este archivo de salida contiene todo el código necesario para ejecutar la aplicación, incluidas las dependencias y los activos.
+3. **Módulos**(modules): En esta sección, definimos cómo diferentes tipos de archivos deben ser tratados. Por ejemplo, los archivos JavaScript son manejados por babel-loader para transpilación, los archivos CSS son manejados por style-loader y css-loader para inyectar CSS en el DOM, y los archivos de imagen son manejados por el sistema de recursos para copiarlos correctamente al directorio de salida.
 
-5. **Optimización**: Webpack puede aplicar optimizaciones al código, como la eliminación de código muerto, la minificación de archivos y la generación de mapas de origen para facilitar la depuración. Estas optimizaciones ayudan a reducir el tamaño de los archivos y mejorar el rendimiento de la aplicación.
+```javascript
+module: {
+  rules: [
+    { test: /\.js$/, exclude: /node_modules/, use: { loader: 'babel-loader' } },
+    { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+    { test: /\.(png|jpe?g|gif|svg)$/i, type: 'asset/resource', generator: { filename: 'assets/images/[hash][ext][query]' } }
+  ]
+},
+```
 
-6. **Salida**: Una vez que Webpack ha completado el proceso de construcción, genera los archivos de salida que se pueden distribuir y ejecutar en un navegador web. Estos archivos contienen el código empaquetado y optimizado de la aplicación, listo para su implementación en un entorno de producción.
+Notas importante:
 
-En resumen, Webpack es una herramienta poderosa que simplifica el proceso de empaquetado y optimización de aplicaciones web. Al utilizar Webpack, los desarrolladores pueden gestionar dependencias, optimizar el código y automatizar tareas de construcción de manera eficiente, lo que les permite centrarse en la creación de aplicaciones de alta calidad y rendimiento.
+- La extension .js en la propiedad test: /\.js$/ indica que se aplicará la regla a todos los archivos con extensión .js. La propiedad exclude: /node_modules/ indica que no se aplicará la regla a los archivos dentro de la carpeta node_modules.
+
+- Cuando mandamos a llamar un archivo .js dentro de otro archivo, no utilizamos la extension .js, por ejemplo: import { saludar } from './saludar';. Y por que? Porque Webpack ya sabe que debe buscar un archivo con extension .js en la configuración de los módulos.
+
+- La propiedad use: { loader: 'babel-loader' } indica que se utilizará el loader babel-loader para transpilar los archivos JavaScript.
+
+4. **Plugins**: Los plugins se utilizan para extender las capacidades de Webpack. Utilizas HtmlWebpackPlugin para generar un archivo HTML que incluye automáticamente todos tus paquetes de Webpack. Esto es esencial para SPA donde el HTML sirve como punto de entrada.
+
+```javascript
+plugins: [
+  new HtmlWebpackPlugin({
+    template: './index.html',
+    filename: 'index.html'
+  })
+],
+```
+
+5. **Modo**(mode): El modo le dice a Webpack si está en modo de desarrollo o producción. En modo de desarrollo, Webpack se enfoca en la velocidad y la experiencia del desarrollador. En modo de producción, Webpack se enfoca en la optimización y el rendimiento.
+
+```javascript
+mode: 'development',
+```
+
+6. **DevServer**: Configuramos un servidor de desarrollo local que sirve nuestra aplicación desde el directorio dist. Habilita compresión y utiliza el puerto 9000. Además, historyApiFallback se configura para soportar la navegación de SPA, asegurándose de que todas las solicitudes de navegación devuelvan index.html.
+
+```javascript
+
+devServer: {
+  contentBase: path.join(__dirname, 'dist'),
+  compress: true,
+  port: 9000,
+  historyApiFallback: { index: '/index.html' }
+},
+```
+
+Estas son las fases principales de cómo funciona Webpack. A medida que Webpack procesa su configuración, crea un gráfico de dependencias y emite un paquete optimizado en la carpeta de salida. Webpack es una herramienta poderosa que puede ayudarte a optimizar tu flujo de trabajo y mejorar el rendimiento de tus aplicaciones web.

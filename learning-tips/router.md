@@ -178,3 +178,15 @@ export async function Router() {
 Finalmente, tenemos la función `Router` que se encarga de manejar el router de nuestra aplicación. Entendamos paso a paso lo que hace:
 
 - 1. Obtiene la ruta actual del navegador. Recordemos que `window` es un objeto global que representa la ventana del navegador.
+- 2. Verifica si la ruta es `/login` o `/`. Si es así, verifica si el token es valido y redirige al usuario al dashboard.
+- 3. Comprueba si la ruta es publica o privada y ejecuta el componente correspondiente.
+- 4. Si la ruta no es valida, redirige al usuario al login.
+- 5. Si no se encuentra la ruta, muestra un mensaje de advertencia y redirige al usuario al login.
+
+Y como ultimo comando:
+
+```javascript
+window.onpopstate = Router;
+```
+
+Este comando se encarga de llamar a la función `Router` cada vez que el usuario navega hacia adelante o hacia atrás en la historia del navegador, y de nuevo, se repite la función `Router` para renderizar la vista correspondiente.
