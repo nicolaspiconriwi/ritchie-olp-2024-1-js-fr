@@ -1,0 +1,23 @@
+.container {
+    display: grid;
+    grid-template-areas: "sidebar navbar"
+        "sidebar main";
+    grid-template-columns: minmax(var(--sidebar-width), auto) 1fr;
+    grid-auto-rows: var(--navbar-height) 1fr;
+    height: 100vh;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.navbar {
+    grid-area: navbar;
+}
+
+.main {
+    grid-area: main;
+    padding: var(--spacing-3);
+}

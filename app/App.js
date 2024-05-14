@@ -1,4 +1,5 @@
 import { Router } from "./Router";
+import './components/navigation-bar'
 
 export function App() {
     const appContainer = document.getElementById('root');

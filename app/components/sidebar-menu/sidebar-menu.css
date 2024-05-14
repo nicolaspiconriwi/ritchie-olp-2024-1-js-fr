@@ -1,29 +1,37 @@
-aside {
-    position: fixed;
-    top: 50px;
-    left: 0;
-    width: 250px;
+aside.sidebar-menu {
+    background-color: rgba(76, 175, 80, 0.4);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     height: 100%;
-    background-color: #444;
-    color: #fff;
-    padding: 20px;
-    z-index: 5;
 }
 
-ul {
+aside.sidebar-menu > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: var(--spacing-2);
+    height: 100%;
+    gap: var(--spacing-1);
+    padding-top: 50px;
+}
+
+aside.sidebar-menu > ul > li {
     list-style: none;
-    padding: 0;
+    width: 100%;
+    transition: var(--transition);
 }
 
-li {
-    margin-bottom: 15px;
-}
-
-a {
+aside.sidebar-menu > ul > li > button {
+    color: black;
+    font-size: 1.2rem;
+    padding: 1rem;
     text-decoration: none;
-    color: #fff;
+    border: 0;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
 }
 
-a:hover {
-    text-decoration: underline;
+.active,
+aside.sidebar-menu > ul > li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
 }

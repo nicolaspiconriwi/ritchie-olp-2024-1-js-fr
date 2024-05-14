@@ -1,15 +1,18 @@
-import './reports.css';
+import styles from './reports.css';
 
 export function ReportScene() {
-  const root = document.getElementById('root');
-  // aqui quiero poner mi navbar
-  root.innerHTML = `
-      <nav>
-        <button id="logout">Logout</button>
-      </nav>
-      <h2>Home</h2>
+
+  const pageContent = `
+      <h2>Reports</h2>
       <p>Welcome to the reports view.</p>
     `;
 
-  document.getElementById('logout').addEventListener('click', logout);
+  const logic = () => {
+    console.log("hello from reports logic");
+  }
+
+  return {
+    pageContent,
+    logic
+  }
 }

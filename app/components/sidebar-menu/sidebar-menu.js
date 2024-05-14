@@ -1,22 +1,26 @@
-import './sidebar-menu.css';
+import styles from './sidebar-menu.css';
 
-if (!customElements.get('sidebar-menu')) {
-  class SidebarMenu extends HTMLElement {
-    constructor() {
-      super();
-      const shadow = this.attachShadow({ mode: 'open' });
-      const sidebar = document.createElement('aside');
+export function SidebarMenu(data = []) {
 
-      sidebar.innerHTML = `
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#reports">Reports</a></li>
-          <li><a href="#settings">Settings</a></li>
-        </ul>
-      `;
-      shadow.appendChild(sidebar);
+  const path = window.location.pathname;
+
+  // if path === href, add active class
+  data.forEach((item) => {
+    if (path === item.href) {
+      item.active = true;
     }
-  }
+  });
 
-  customElements.define('sidebar-menu', SidebarMenu);
+  return `
+    <aside class="${styles["sidebar-menu"]}">
+      <ul>
+        ${data.map((item) => `
+          <li class="${item.active ? styles.active : ''}">
+            <button id="${item.href}" type="button">${item.name}</button>
+          </li>
+        `).join('')}
+        <li><button id="logout" type="button">Logout</button></li>
+      </ul>
+    </aside>
+  `;
 }

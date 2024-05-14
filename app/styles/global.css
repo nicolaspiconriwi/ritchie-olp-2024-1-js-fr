@@ -1,3 +1,62 @@
+:root {
+
+    /* Colors */
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --white-color: #fff;
+    --black-color: #000;
+    --gray-color: #6c757d;
+    --gray-dark-color: #343a40;
+
+    /* Spacing */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 1rem;
+    --spacing-4: 1.5rem;
+    --spacing-5: 3rem;
+
+    /* Breakpoints */
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+
+    /* Typography */
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-md: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-xs: 0.75rem;
+
+    /* Font weight */
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* Line height */
+    --line-height-base: 1.5;
+
+    /* Border radius */
+    --border-radius: 0.25rem;
+
+    /* Transition */
+    --transition: all 0.3s ease;
+
+    /*navbar height*/
+    --navbar-height: auto;
+
+    /*sidebar width*/
+    --sidebar-width: 225px;
+
+}
+
+
 html {
     box-sizing: border-box;
 }
@@ -39,15 +98,11 @@ a:hover {
     text-decoration: underline;
 }
 
-main {
-    padding: 20px;
-}
-
 img {
     max-width: 100%;
     height: auto;
 }
 
-loader {
+.loader {
     color: yellow;
 }

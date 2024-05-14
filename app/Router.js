@@ -1,3 +1,4 @@
+import { DashboardLayout } from './components/layout/private/dashboard/dashboard-layout';
 import { routes } from './helpers/routes';
 
 const API_URL = 'http://localhost:4000/api/auth/verify-token';
@@ -28,6 +29,7 @@ async function verifyToken(token) {
 
 // Navegar a una nueva ruta
 export function navigateTo(path) {
+  console.log("navigating to path");
   window.history.pushState({}, '', window.location.origin + path);
   Router();
 }
@@ -48,7 +50,8 @@ async function checkAuth(path) {
       // Ejecutar componente privado correspondiente
       const privateRoute = routes.private.find((r) => r.path === path);
       if (privateRoute) {
-        privateRoute.component();
+        const { pageContent, logic } = privateRoute.component();
+        DashboardLayout(pageContent, logic)
         return;
       } else {
         navigateTo('/dashboard'); // Redirigir a dashboard si la ruta privada no existe
