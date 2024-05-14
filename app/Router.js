@@ -38,32 +38,26 @@ export function navigateTo(path) {
 async function checkAuth(path) {
   const token = localStorage.getItem('token');
 
-  if (token) {
-    const [isValid] = await verifyToken(token);
-    if (isValid) {
-      // Redirigir al dashboard si se intenta acceder al login o a la raíz
-      if (path === '/login' || path === '/') {
-        navigateTo('/dashboard');
-        return;
-      }
+  // Si no hay token, redirigir a login
+  if (!token) return navigateTo('/login');
 
-      // Ejecutar componente privado correspondiente
-      const privateRoute = routes.private.find((r) => r.path === path);
-      if (privateRoute) {
-        const { pageContent, logic } = privateRoute.component();
-        DashboardLayout(pageContent, logic)
-        return;
-      } else {
-        navigateTo('/dashboard'); // Redirigir a dashboard si la ruta privada no existe
-      }
-    } else {
-      // Token no válido, redirigir a login
-      navigateTo('/login');
-    }
-  } else {
-    // Si no hay token, redirigir a login
-    navigateTo('/login');
+  const [isValid] = await verifyToken(token);
+
+  // Token no válido, redirigir a login
+  if (!isValid) return navigateTo('/login');
+
+  // Redirigir al dashboard si se intenta acceder al login o a la raíz
+  if (path === '/login' || path === '/') {
+    navigateTo('/dashboard');
+    return;
   }
+
+  const privateRoute = routes.private.find((r) => r.path === path);
+  if (!privateRoute) return navigateTo('/dashboard'); // Redirigir a dashboard si la ruta privada no existe
+
+  // Ejecutar componente privado correspondiente
+  const { pageContent, logic } = privateRoute.component();
+  DashboardLayout(pageContent, logic);
 }
 
 // Definir y manejar el router
