@@ -47,7 +47,10 @@ Si no le indicamos un nombre de archivo, Webpack generará un archivo llamado 'm
 module: {
   rules: [
     { test: /\.js$/, exclude: /node_modules/, use: { loader: 'babel-loader' } },
-    { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+    { test: /\.css$/, use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+        ]},
     { test: /\.(png|jpe?g|gif|svg)$/i, type: 'asset/resource', generator: { filename: 'assets/images/[hash][ext][query]' } }
   ]
 },
@@ -61,7 +64,26 @@ Notas importante:
 
 - La propiedad use: { loader: 'babel-loader' } indica que se utilizará el loader babel-loader para transpilar los archivos JavaScript.
 
-4. **Plugins**: Los plugins se utilizan para extender las capacidades de Webpack. Utilizas HtmlWebpackPlugin para generar un archivo HTML que incluye automáticamente todos tus paquetes de Webpack. Esto es esencial para SPA donde el HTML sirve como punto de entrada.
+- La propiedad test: /\.css$/ indica que se aplicará la regla a todos los archivos con extensión .css.
+
+- La propiedad use: ['style-loader', 'css-loader'] indica que se utilizarán los loaders style-loader y css-loader para manejar los archivos CSS.
+
+4. **Loaders**: Los loaders son utilizados por Webpack para procesar diferentes tipos de archivos y convertirlos en módulos que pueden ser incluidos en el paquete final. Los loaders se configuran en la sección de módulos y se utilizan para transformar archivos de diferentes formatos, como JavaScript, CSS, imágenes y fuentes.
+
+Por ejemplo, babel-loader transforma el codigo javascript moderno en un codigo javascript compatible con versiones anteriores de los navegadores. css-loader interpreta la regla css @import y url() y resuelve las importaciones de archivos CSS y resolvera las dependencias.
+
+5. **Plugins**: Los plugins se utilizan para extender las capacidades de Webpack. Utilizas HtmlWebpackPlugin para generar un archivo HTML que incluye automáticamente todos tus paquetes de Webpack. Esto es esencial para SPA donde el HTML sirve como punto de entrada.
+
+- Entendamos a los plugins como una forma de extender las capacidades de Webpack. Por ejemplo, el plugin HtmlWebpackPlugin se utiliza para generar un archivo HTML que incluye automáticamente todos los paquetes de Webpack. Esto es esencial para SPA donde el HTML sirve como punto de entrada.
+
+- Además los plugins son la columna vertebral de Webpack, ya que permiten realizar tareas como la optimización, la generación de código fuente y la gestión de activos. Mientras que los loaders se utilizan para transformar ciertos tipos de modulos, los plugins se pueden utilizar para realizar tareas como:
+
+  - Generar archivos HTML.
+  - Minificar archivos CSS y JavaScript.
+  - Optimizar imágenes.
+  - Crear variables de entorno.
+  - Crear bundles de código separados.
+  - Y mucho más.
 
 ```javascript
 plugins: [
@@ -72,13 +94,13 @@ plugins: [
 ],
 ```
 
-5. **Modo**(mode): El modo le dice a Webpack si está en modo de desarrollo o producción. En modo de desarrollo, Webpack se enfoca en la velocidad y la experiencia del desarrollador. En modo de producción, Webpack se enfoca en la optimización y el rendimiento.
+6. **Modo**(mode): El modo le dice a Webpack si está en modo de desarrollo o producción. En modo de desarrollo, Webpack se enfoca en la velocidad y la experiencia del desarrollador. En modo de producción, Webpack se enfoca en la optimización y el rendimiento.
 
 ```javascript
 mode: 'development',
 ```
 
-6. **DevServer**: Configuramos un servidor de desarrollo local que sirve nuestra aplicación desde el directorio dist. Habilita compresión y utiliza el puerto 9000. Además, historyApiFallback se configura para soportar la navegación de SPA, asegurándose de que todas las solicitudes de navegación devuelvan index.html.
+7. **DevServer**: Configuramos un servidor de desarrollo local que sirve nuestra aplicación desde el directorio dist. Habilita compresión y utiliza el puerto 9000. Además, historyApiFallback se configura para soportar la navegación de SPA, asegurándose de que todas las solicitudes de navegación devuelvan index.html.
 
 ```javascript
 

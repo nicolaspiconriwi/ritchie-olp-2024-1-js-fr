@@ -1,18 +1,19 @@
 import { navigateTo } from '../../../../../Router.js';
 import { formValidator } from '../../../../../helpers';
-import './login-form.css';
+import style from './login-form.css';
 
 export async function LoginFormComponent() {
   const root = document.getElementById('root');
 
+  console.log(style);
   root.innerHTML = `
-      <form id="loginForm">
+      <form id="loginForm" class="${style.form}">
         <h2>Login</h2>
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" autocomplete="email">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" autocomplete="current-password">
-        <button type="submit">Login</button>
+        <label for="email" class="${style.label}">Email:</label>
+        <input type="text" id="email" name="email" autocomplete="email" class="${style['input-email']}">
+        <label for="password" class="${style.label}">Password:</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" class="${style['input-password']}">
+        <button type="submit" class="${style['button-send']}">Login</button>
       </form>
     `;
   
