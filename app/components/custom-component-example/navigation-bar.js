@@ -1,5 +1,7 @@
 import './navigation-bar.css';
 
+
+
 if (!customElements.get('navigation-bar')) {
   class NavigationBar extends HTMLElement {
     constructor() {
@@ -21,7 +23,6 @@ if (!customElements.get('navigation-bar')) {
 
   customElements.define('navigation-bar', NavigationBar);
 }
-
 
 /**
  * Que es un shadow root?

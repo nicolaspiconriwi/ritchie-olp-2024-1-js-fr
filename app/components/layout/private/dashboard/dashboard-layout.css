@@ -1,7 +1,7 @@
 .container {
     display: grid;
     grid-template-areas: "sidebar navbar"
-        "sidebar main";
+                        "sidebar main";
     grid-template-columns: minmax(var(--sidebar-width), auto) 1fr;
     grid-auto-rows: var(--navbar-height) 1fr;
     height: 100vh;

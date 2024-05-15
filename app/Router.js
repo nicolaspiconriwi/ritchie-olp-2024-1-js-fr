@@ -29,7 +29,6 @@ async function verifyToken(token) {
 
 // Navegar a una nueva ruta
 export function navigateTo(path) {
-  console.log("navigating to path");
   window.history.pushState({}, '', window.location.origin + path);
   Router();
 }
@@ -50,6 +49,7 @@ async function checkAuth(path) {
       // Ejecutar componente privado correspondiente
       const privateRoute = routes.private.find((r) => r.path === path);
       if (privateRoute) {
+        // hace la peticion al backend.
         const { pageContent, logic } = privateRoute.component();
         DashboardLayout(pageContent, logic)
         return;
@@ -69,7 +69,6 @@ async function checkAuth(path) {
 // Definir y manejar el router
 export async function Router() {
   const path = window.location.pathname;
-  console.log(path);
 
   // Verificar autenticación antes de decidir qué componente mostrar
   if (path === '/login' || path === '/') {
@@ -90,6 +89,7 @@ export async function Router() {
   if (publicRoute) {
     publicRoute.component();
   } else if (privateRoute) {
+    console.log("I'm here");
     checkAuth(path);
   } else {
     console.warn('Ruta no encontrada:', path);

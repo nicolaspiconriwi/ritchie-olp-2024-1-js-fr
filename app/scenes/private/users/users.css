@@ -1,0 +1,4 @@
+.page-title {
+    font-size: var(--font-size-base);
+    color: var(--info-color);
+}
