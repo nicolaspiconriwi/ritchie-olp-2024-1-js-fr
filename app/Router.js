@@ -89,7 +89,6 @@ export async function Router() {
   if (publicRoute) {
     publicRoute.component();
   } else if (privateRoute) {
-    console.log("I'm here");
     checkAuth(path);
   } else {
     console.warn('Ruta no encontrada:', path);
