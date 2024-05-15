@@ -72,7 +72,7 @@ export async function Router() {
   const params = new URLSearchParams(window.location.search);
 
   // Verificar autenticación antes de decidir qué componente mostrar
-  if (path === '/login' || path === '/') {
+  if (path === '/login') {
     const token = localStorage.getItem('token');
     if (token) {
       const [isValid] = await verifyToken(token);

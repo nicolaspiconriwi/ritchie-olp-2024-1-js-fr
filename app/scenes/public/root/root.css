@@ -1,0 +1,15 @@
+.header {
+    background-color: rgb(0, 0, 163);
+    padding: 10px;
+    text-align: center;
+}
+
+.header > nav > ul {
+    display: flex;
+    justify-content: center;
+}
+
+.header > nav > ul > li {
+    list-style-type: none;
+    margin-right: 10px;
+}
