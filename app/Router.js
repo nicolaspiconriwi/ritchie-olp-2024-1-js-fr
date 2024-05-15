@@ -34,7 +34,7 @@ export function navigateTo(path) {
 }
 
 // Verificar la autenticación y redirigir
-async function checkAuth(path) {
+async function checkAuth(path, params) {
   const token = localStorage.getItem('token');
 
   if (token) {
@@ -50,7 +50,7 @@ async function checkAuth(path) {
       const privateRoute = routes.private.find((r) => r.path === path);
       if (privateRoute) {
         // hace la peticion al backend.
-        const { pageContent, logic } = privateRoute.component();
+        const { pageContent, logic } = privateRoute.component(params);
         DashboardLayout(pageContent, logic)
         return;
       } else {
@@ -69,6 +69,7 @@ async function checkAuth(path) {
 // Definir y manejar el router
 export async function Router() {
   const path = window.location.pathname;
+  const params = new URLSearchParams(window.location.search);
 
   // Verificar autenticación antes de decidir qué componente mostrar
   if (path === '/login' || path === '/') {
@@ -87,9 +88,9 @@ export async function Router() {
   const privateRoute = routes.private.find((r) => r.path === path);
 
   if (publicRoute) {
-    publicRoute.component();
+    publicRoute.component(params);
   } else if (privateRoute) {
-    checkAuth(path);
+    checkAuth(path, params);
   } else {
     console.warn('Ruta no encontrada:', path);
     navigateTo('/login');
