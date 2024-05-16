@@ -6,8 +6,9 @@ import { UserScene } from '../scenes/private/users';
 import { ForumScene } from '../scenes/private/forum';
 import { Showcases } from '../scenes/private/showcases';
 import { RegisterPage } from '../scenes/public/register';
-import { RootScene } from '../scenes/public/root/root';
-
+// import { ProfileScene } from '../scenes/public/profile/profile';
+import { GameScene } from '../scenes/private/games/games';
+import { ProfileScene } from '../scenes/private/profile/profile';
 
 export const routes = {
     private: [
@@ -17,10 +18,12 @@ export const routes = {
         { path: '/dashboard/users', component: UserScene },
         { path: '/dashboard/forum', component: ForumScene},
         { path: '/dashboard/show-cases', component: Showcases },
+        { path: '/dashboard/games', component: GameScene },
+        { path: '/dashboard/profile', component: ProfileScene },
     ],
     public: [
-        { path: '/', component: RootScene },
         { path: '/login', component: LoginPage },
         { path: '/register', component: RegisterPage },
+        { path: '/profile', component: ProfileScene },
     ]
 };
