@@ -1,3 +1,51 @@
-.container {
+/*class selector*/
+.class-example {
     background-color: green;
 }
+/*id selector*/
+#id-example {
+    background-color: red;
+}
+/*element selector*/
+/* div {
+    background-color: rgba(91, 91, 197, 0.326);
+} */
+/*attribute selector*/
+[type="text"] {
+    background-color: yellow;
+}
+/*pseudo-class selector*/
+a:hover {
+    background-color: pink;
+}
+/*pseudo-element selector*/
+p::first-line {
+    background-color: orange;
+}
+/*grouping selector*/
+.class-example, #id-example {
+    background-color: purple;
+}
+/*descendant selector*/
+div p {
+    background-color: brown;
+}
+/*child selector*/
+div > p {
+    background-color: black;
+}
+/*adjacent sibling selector*/
+div + p {
+    background-color: white;
+}
+/*general sibling selector*/
+div ~ p {
+    background-color: gray;
+}
+
+/* 
+Recordemos que los selectores de CSS se utilizan para seleccionar los elementos HTML a los que se les aplicarán 
+los estilos. Los selectores de CSS se pueden dividir en cinco categorías: selectores simples, selectores de
+atributos, selectores de pseudoclases, selectores de pseudoelementos y selectores combinados.
+
+*/

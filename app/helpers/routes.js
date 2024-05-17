@@ -9,6 +9,7 @@ import { RegisterPage } from '../scenes/public/register';
 // import { ProfileScene } from '../scenes/public/profile/profile';
 import { GameScene } from '../scenes/private/games/games';
 import { ProfileScene } from '../scenes/private/profile/profile';
+import { PostScene } from '../scenes/private/posts/posts';
 
 export const routes = {
     private: [
@@ -20,6 +21,7 @@ export const routes = {
         { path: '/dashboard/show-cases', component: Showcases },
         { path: '/dashboard/games', component: GameScene },
         { path: '/dashboard/profile', component: ProfileScene },
+        { path: '/dashboard/posts', component: PostScene },
     ],
     public: [
         { path: '/login', component: LoginPage },

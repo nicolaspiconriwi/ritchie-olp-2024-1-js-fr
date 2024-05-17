@@ -1,0 +1,42 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "email": "johndow@gmail.com",
+            "roleId": 1
+        },
+        {
+            "id": 2,
+            "name": "Jane Doe",
+            "email": "janedow@gmail.com",
+            "roleId": 1
+        },
+        {
+            "id": 3,
+            "name": "John Smith",
+            "email": "johnsmith@gmail.com",
+            "roleId": 1
+        },
+        {
+            "id": 4,
+            "name": "Jane Smith",
+            "email": "janesmith@gmail.com",
+            "roleId": 1
+        }
+    ],
+    "roles": [
+        {
+            "id": 1,
+            "name": "Admin"
+        },
+        {
+            "id": 2,
+            "name": "User"
+        },
+        {
+            "id": 3,
+            "name": "Guest"
+        }
+    ]
+}
