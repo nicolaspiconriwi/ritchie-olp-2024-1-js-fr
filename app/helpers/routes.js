@@ -10,6 +10,7 @@ import { RegisterPage } from '../scenes/public/register';
 import { GameScene } from '../scenes/private/games/games';
 import { ProfileScene } from '../scenes/private/profile/profile';
 import { PostScene } from '../scenes/private/posts/posts';
+import { RoutesScene } from '../scenes/private/routes/routes-scene';
 
 export const routes = {
     private: [
@@ -22,6 +23,9 @@ export const routes = {
         { path: '/dashboard/games', component: GameScene },
         { path: '/dashboard/profile', component: ProfileScene },
         { path: '/dashboard/posts', component: PostScene },
+        { path: '/dashboard/routes', component: RoutesScene},
+        // { path: '/dashboard/routes/languages', component: LanguageByRouteScene},
+        // { path: '/dashboard/routes/languages/modules', component: ModulesByLanguage}
     ],
     public: [
         { path: '/login', component: LoginPage },

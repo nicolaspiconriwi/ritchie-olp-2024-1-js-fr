@@ -70,6 +70,7 @@ async function checkAuth(path, params) {
 export async function Router() {
   const path = window.location.pathname; // /login
   const params = new URLSearchParams(window.location.search);
+  console.log(params.get('id'));
 
   // Verificar autenticación antes de decidir qué componente mostrar
   if (path === '/login') {

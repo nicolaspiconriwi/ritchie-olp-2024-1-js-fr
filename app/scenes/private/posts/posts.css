@@ -1,3 +1,5 @@
-.container {
-    background-color: red;
+.title {
+    color: red;
+    font-weight: bolder;
+    border: 1px solid black
 }

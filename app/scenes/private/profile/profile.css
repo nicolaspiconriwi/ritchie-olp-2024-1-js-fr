@@ -12,7 +12,7 @@
 } */
 /*attribute selector*/
 [type="text"] {
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 /*pseudo-class selector*/
 a:hover {
