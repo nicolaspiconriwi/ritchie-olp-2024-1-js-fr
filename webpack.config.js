@@ -22,6 +22,7 @@ module.exports = {
       },
       {
         test: /\.css$/, // Expresión regular para identificar los archivos css
+        exclude: /node_modules/,  // Excluye node_modules
         use: [ // Loader a utilizar
           MiniCssExtractPlugin.loader, // Extrae el css a un archivo independiente
           {
@@ -37,7 +38,15 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)$/i, // Expresión regular para identificar los archivos de imágenes
         use: ['file-loader?name=assets/[name].[ext]'] // Loader a utilizar, file-loader, copia los archivos de imágenes al directorio de salida
-      }
+      },
+      {
+        test: /\.css$/,
+        include: /node_modules/,  // Incluye explícitamente node_modules aquí
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader'  // Usar css-loader sin opciones de módulos
+        ]
+      },
     ]
   },
   plugins: [ // Configuración de los plugins

@@ -1,9 +1,11 @@
+@import url("https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.core.css");
 :root {
 
     /* Colors */
     --primary-color: #007bff;
     --secondary-color: #6c757d;
     --success-color: #28a745;
+    --success-color-hover: #218837;
     --info-color: #17a2b8;
     --warning-color: #ffc107;
     --danger-color: #dc3545;

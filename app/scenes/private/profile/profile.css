@@ -20,7 +20,7 @@ a:hover {
 }
 /*pseudo-element selector*/
 p::first-line {
-    background-color: orange;
+    /* background-color: orange; */
 }
 /*grouping selector*/
 .class-example, #id-example {
@@ -28,11 +28,11 @@ p::first-line {
 }
 /*descendant selector*/
 div p {
-    background-color: brown;
+    /* background-color: brown; */
 }
 /*child selector*/
 div > p {
-    background-color: black;
+    /* background-color: black; */
 }
 /*adjacent sibling selector*/
 div + p {

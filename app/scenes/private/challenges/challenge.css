@@ -1,0 +1,110 @@
+.container {
+    display: flex;
+    gap: var(--spacing-3);
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 0 0 calc((33.333% - 100%)/var(--spacing-3));
+    background-color: rgb(219, 216, 216);
+    padding: var(--spacing-3);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.header-challenges {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-3);
+}
+
+.header-challenges h2 {
+    font-size: var(--font-size-3);
+    font-weight: 500;
+}
+
+.header-challenges button {
+    background-color: var(--success-color);
+    color: var(--light-color);
+    padding: var(--spacing-2) var(--spacing-3);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header-challenges button:hover {
+    background-color: var(--success-color-hover);
+}
+
+.description-container {
+    display: flex;
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-3);
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: var(--spacing-3) 0;
+    padding-bottom: 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-3);
+    justify-content: flex-end;
+}
+
+.challenge_title-container,
+.challenge_description-container {
+    display: flex;
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-1);
+    margin-top: var(--spacing-3);
+    align-items: flex-start;
+    flex-direction: column;
+
+}
+
+.challenge_title-input {
+    width: 100%;
+    padding: var(--spacing-2);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--border-radius);
+}
+
+.editor {
+    height: 70vh !important; /* o cualquier altura que desees */
+    /* Agregar otras propiedades si es necesario */
+}
+
+
+.challenge_description-container textarea {
+    width: 100%;
+    padding: var(--spacing-2);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--border-radius);
+}
+
+.see-comer-btn {
+    background-color: var(--success-color);
+    color: var(--light-color);
+    padding: var(--spacing-2) var(--spacing-3);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.challenge-card {
+    flex: 0 0 calc((33.333% - 100%)/var(--spacing-1));
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-3);
+}

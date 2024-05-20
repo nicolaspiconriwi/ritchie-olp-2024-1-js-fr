@@ -8,6 +8,9 @@
         "build": "webpack --mode production"
     },
     "dependencies": {
+        "quill": "^2.0.2",
+        "quill-delta-to-html": "^0.12.1",
+        "quill-mathquill-blot": "^1.9.0",
         "three.js": "^0.77.1"
     },
     "devDependencies": {
