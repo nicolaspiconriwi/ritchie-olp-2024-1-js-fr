@@ -1,0 +1,7 @@
+.container {
+    background: url("./my-image.jpg");
+    height: 100vh;
+    background-size: cover;
+    font-family: var(--font-family-base);
+}
+

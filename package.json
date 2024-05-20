@@ -10,7 +10,6 @@
     "dependencies": {
         "quill": "^2.0.2",
         "quill-delta-to-html": "^0.12.1",
-        "quill-mathquill-blot": "^1.9.0",
         "three.js": "^0.77.1"
     },
     "devDependencies": {
@@ -21,6 +20,8 @@
         "file-loader": "^6.2.0",
         "html-loader": "^4.0.0",
         "html-webpack-plugin": "^5.0.0",
+        "image-webpack-loader": "^8.1.0",
+        "json-server": "^1.0.0-beta.0",
         "mini-css-extract-plugin": "^2.9.0",
         "style-loader": "^3.0.0",
         "webpack": "^5.0.0",

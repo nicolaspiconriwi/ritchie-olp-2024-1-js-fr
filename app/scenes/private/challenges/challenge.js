@@ -4,15 +4,7 @@ import { ChallengeByIdScene } from './'
 import { fetchApi } from '../../../helpers/fetch-api'
 
 export function ChallengeScene(params) {
-
-    const routesArray = []
-
-    for (let i = 1; i <= 10; i++) {
-        routesArray.push(i)
-    }
-
     let pageContent = `
-
     <section class="${styles["header-challenges"]}">
         <h1>Challenges</h1>
         <button id="create-challenge">Crear</button>

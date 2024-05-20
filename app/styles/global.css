@@ -1,4 +1,8 @@
-@import url("https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.core.css");
+@font-face {
+    font-family: 'popins-regular';
+    src: url(../assets/fonts/Poppins/Poppins-Regular.ttf);
+}
+
 :root {
 
     /* Colors */
@@ -22,6 +26,9 @@
     --spacing-3: 1rem;
     --spacing-4: 1.5rem;
     --spacing-5: 3rem;
+
+    /* Font Family */
+    --font-family-base: 'popins-regular', sans-serif;
 
     /* Breakpoints */
     --breakpoint-xs: 0;

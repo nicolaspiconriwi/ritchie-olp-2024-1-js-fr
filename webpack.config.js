@@ -36,8 +36,33 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i, // Expresión regular para identificar los archivos de imágenes
-        use: ['file-loader?name=assets/[name].[ext]'] // Loader a utilizar, file-loader, copia los archivos de imágenes al directorio de salida
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource', // asset/resource sustituye a file-loader
+        generator: {
+          filename: 'assets/[name][ext]' // Define la carpeta de salida y el formato del nombre del archivo
+        },
+        use: {
+          loader: 'image-webpack-loader', // Optimiza las imágenes
+          options: { // Opciones de optimización
+            mozjpeg: { // Optimiza las imágenes jpeg
+              progressive: true, // Habilita la optimización progresiva, o sea, la imagen se va cargando a medida que se va descargando
+              quality: 65 // Calidad de la imagen
+            },
+            optipng: { // Optimiza las imágenes png
+              enabled: false, // Habilita la optimización
+            },
+            pngquant: { // Optimiza las imágenes png, a diferencia de optipng, pngquant es más agresivo
+              quality: [0.65, 0.90], // Calidad de la imagen
+              speed: 4 // Velocidad de optimización
+            },
+            gifsicle: { // Optimiza las imágenes gif
+              interlaced: false, // Habilita la optimización entrelazada, o sea, la imagen se va cargando a medida que se va descargando
+            },
+            webp: { // Optimiza las imágenes webp
+              quality: 75 // Calidad de la imagen
+            }
+          }
+        },
       },
       {
         test: /\.css$/,
