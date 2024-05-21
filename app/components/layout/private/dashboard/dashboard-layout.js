@@ -52,3 +52,16 @@ export function DashboardLayout(pageContent, logic, footer, navbarData, sidebarD
 
   document.getElementById('logout').addEventListener('click', logOut)
 }
+
+// export function MyLayout(pageContent){
+//   const root = document.getElementById('root')
+//   const menu = `<nav>
+//   <ul>
+    
+//   </ul>
+// </nav>`
+//   root.innerHTML = `
+//     ${menu}
+//     ${pageContent}
+//   `
+// }

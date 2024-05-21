@@ -10,6 +10,7 @@ import { GameScene } from '../scenes/private/games/games';
 import { ProfileScene } from '../scenes/private/profile/profile';
 import { PostScene } from '../scenes/private/posts/posts';
 import { ChallengeScene, CreateChallengeScene } from '../scenes/private/challenges';
+import { ModuleCreateScene } from '../scenes/private/modules/module-create';
 
 export const routes = {
     private: [
@@ -24,6 +25,7 @@ export const routes = {
         { path: '/dashboard/posts', component: PostScene },
         { path: '/dashboard/challenges', component: ChallengeScene},
         { path: '/dashboard/challenges/create', component: CreateChallengeScene},
+        { path: '/dashboard/modules/create', component: ModuleCreateScene},
         // { path: '/dashboard/routes/languages', component: LanguageByRouteScene},
         // { path: '/dashboard/routes/languages/modules', component: ModulesByLanguage}
     ],
